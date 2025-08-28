@@ -8,8 +8,8 @@ namespace Ejercicio1
             Console.WriteLine("Hello, World!");
             Console.WriteLine("Hello, World!");
 
-            Auto autito = new Auto("toyota", "prius", false, "asd5286", 2014);
-            autito.Validar();
+            Auto autito = new Auto("toyota", "prius", false, "asd5256", 2014);
+            //autito.Validar();
            
             string datos = autito.mostrar();
             Console.WriteLine(datos);

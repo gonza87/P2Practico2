@@ -14,7 +14,8 @@
             _modelo = modelo;
             _exoneraImpuestos = exoneraImpuestos;
             _matricula = matricula;
-            _anio = anio;   
+            _anio = anio;
+            Validar();
         }
         private void ValidarMatricula()
         {
