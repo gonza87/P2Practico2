@@ -10,6 +10,7 @@ namespace Ejercicio1
 
             Auto autito = new Auto("toyota", "prius", false, "asd5286", 2014);
             autito.ValidarMatricula();
+            autito.ValidarMarca();
             string datos = autito.mostrar();
             Console.WriteLine(datos);
             Console.WriteLine($"patente: {autito.CalcularPatente()}");

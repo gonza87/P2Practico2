@@ -18,6 +18,7 @@
         }
         public void ValidarMatricula()
         {
+
             // Supongamos que la matrícula debe tener 7 caracteres.
             if (_matricula.Length != 7)
             {
@@ -26,6 +27,13 @@
 
             // Si no hay errores, el método simplemente termina.
             // No devuelve nada.
+        }
+        public void ValidarMarca()
+        {
+            if (_marca.Length < 3)
+            {
+                throw new ArgumentException("La marca debe tener mas de tres caracteres");
+            }
         }
         public string mostrar()
         {
@@ -40,12 +48,12 @@
             decimal patente = 0;
             if(_anio < 2015)
             {
-                if (_exoneraImpuestos) patente = 10000;
-                else patente = 12000;
+                if (_exoneraImpuestos) patente = 10.000M;
+                else patente = 12.000M;
             }
             else
             {
-                patente = 17000;
+                patente = 17.000M;
             }
                 return patente;
 
