@@ -9,8 +9,8 @@ namespace Ejercicio1
             Console.WriteLine("Hello, World!");
 
             Auto autito = new Auto("toyota", "prius", false, "asd5286", 2014);
-            autito.ValidarMatricula();
-            autito.ValidarMarca();
+            autito.Validar();
+           
             string datos = autito.mostrar();
             Console.WriteLine(datos);
             Console.WriteLine($"patente: {autito.CalcularPatente()}");

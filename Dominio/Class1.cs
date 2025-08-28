@@ -16,7 +16,7 @@
             _matricula = matricula;
             _anio = anio;   
         }
-        public void ValidarMatricula()
+        private void ValidarMatricula()
         {
 
             // Supongamos que la matrícula debe tener 7 caracteres.
@@ -28,12 +28,18 @@
             // Si no hay errores, el método simplemente termina.
             // No devuelve nada.
         }
-        public void ValidarMarca()
+        private void ValidarMarca()
         {
             if (_marca.Length < 3)
             {
                 throw new ArgumentException("La marca debe tener mas de tres caracteres");
             }
+        }
+
+        public void Validar()
+        {
+            ValidarMatricula();
+            ValidarMarca();
         }
         public string mostrar()
         {
