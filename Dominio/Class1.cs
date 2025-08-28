@@ -6,14 +6,15 @@
         private string _modelo;
         private bool _exoneraImpuestos;
         private string _matricula;
+        private int _anio;
 
-        public Auto(string marca, string modelo, bool exoneraImpuestos, string matricula)
+        public Auto(string marca, string modelo, bool exoneraImpuestos, string matricula, int anio)
         {
             _marca = marca;
             _modelo = modelo;
             _exoneraImpuestos = exoneraImpuestos;
             _matricula = matricula;
-               
+            _anio = anio;   
         }
         public void ValidarMatricula()
         {
@@ -28,7 +29,26 @@
         }
         public string mostrar()
         {
-            return $"Marca: {_marca}  Modelo: {_modelo} ExoneraImpuestos: {_exoneraImpuestos} Matricula: {_matricula}";
+            return $"Marca: {_marca}  Modelo: {_modelo} ExoneraImpuestos: {_exoneraImpuestos} Matricula: {_matricula} Año: {_anio}";
+        }
+
+        //Los autos anteriores a 2015 si exoneran impuestos pagan
+        //$10.000, sino pagan $12.000. Y los posteriores a 2015 pagan $17.000
+
+        public decimal CalcularPatente()
+        {
+            decimal patente = 0;
+            if(_anio < 2015)
+            {
+                if (_exoneraImpuestos) patente = 10000;
+                else patente = 12000;
+            }
+            else
+            {
+                patente = 17000;
+            }
+                return patente;
+
         }
 
        
