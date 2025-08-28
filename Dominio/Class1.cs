@@ -26,10 +26,11 @@
             // Si no hay errores, el método simplemente termina.
             // No devuelve nada.
         }
-
-        public decimal CalcularPatente()
+        public string mostrar()
         {
-
+            return $"Marca: {_marca}  Modelo: {_modelo} ExoneraImpuestos: {_exoneraImpuestos} Matricula: {_matricula}";
         }
+
+       
     }
 }
