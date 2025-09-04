@@ -10,6 +10,7 @@ namespace Dominio4
 {
     public class Cuenta
     {
+       
         public enum Moneda { peso, dolar };
         public enum TipoCuenta { CC, CA };
 
@@ -47,11 +48,23 @@ namespace Dominio4
         // y que no supere los $ 50000 o u$s 1000. Este método debe indicar si fue posible realizar la operación.
 
 
-        public bool Deposito(decimal dinero, Moneda tipoDeMoneda)
+        public bool Deposito(decimal dinero, Moneda monedaEnv)
         {
             bool exito = false;
 
-            if ()
+            if (_miMoneda == monedaEnv)
+            {
+                if(monedaEnv == Moneda.peso && dinero <= 50000)
+                {
+                    _saldoActual += dinero;
+                    exito = true;
+
+                } else if(monedaEnv == Moneda.dolar && dinero <= 1000)
+                {
+                    _saldoActual += dinero;
+                    exito = true;
+                }
+            } 
 
                 return exito;
         }
