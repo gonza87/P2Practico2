@@ -1,38 +1,32 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dominio4
+﻿namespace Dominio4
 {
     public class Cuenta
     {
 
         public enum Moneda { peso, dolar };
         public enum TipoCuenta { CC, CA };
+        private int contRetiro = 0;
 
         private string _titular;
         private decimal _saldoActual;
         private int _numeroCuenta;
         private TipoCuenta _cuentaBanco;
         private Moneda _miMoneda;
+        
 
         public string Titular
         {
             get { return _titular; }
-            
+
         }
 
         public decimal SaldoActual { get { return _saldoActual; } set { _saldoActual = value; } }
 
-        public int NumeroCuenta { get { return _numeroCuenta; }  } //solo defino prop get asi no se puede modificar desde afuera el valor una vez instanciado el objeto
+        public int NumeroCuenta { get { return _numeroCuenta; } } //solo defino prop get asi no se puede modificar desde afuera el valor una vez instanciado el objeto
 
-        public TipoCuenta CuentaBanco { get { return _cuentaBanco; }  }
+        public TipoCuenta CuentaBanco { get { return _cuentaBanco; } }
 
-        public Moneda MiMoneda { get { return _miMoneda; }  }
+        public Moneda MiMoneda { get { return _miMoneda; } }
 
         public Cuenta(string titular, decimal saldoActual, int numeroCuenta, TipoCuenta tipoCuenta, Moneda moneda)
         {
@@ -42,6 +36,7 @@ namespace Dominio4
             _numeroCuenta = numeroCuenta;
             _cuentaBanco = tipoCuenta;
             _miMoneda = moneda;
+
 
         }
         // Se podrá hacer un depósito a la cuenta, se debe controlar que sea de la misma moneda 
@@ -75,15 +70,26 @@ namespace Dominio4
         public bool RetirarDinero(decimal dineroARetirar)
         {
             bool exito = false;
-            if(dineroARetirar <= _saldoActual)
+            if (dineroARetirar <= _saldoActual)
             {
-                _saldoActual -= dineroARetirar;
-                exito = true;
+                if (contRetiro <= 5)
+                {
+                    _saldoActual -= dineroARetirar;
+                    contRetiro++;
+                    exito = true;
+                }
+                else
+                {
+                    _saldoActual -= (dineroARetirar -50);
+                    contRetiro++;
+                    exito = true;
+                }
+
             }
             else
             {
                 throw new Exception("Dinero insuficiente");
-                
+
             }
             return exito;
         }

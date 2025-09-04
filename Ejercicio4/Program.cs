@@ -10,6 +10,8 @@ namespace Ejercicio4
             Console.WriteLine("Hello, World!");
 
             Cuenta cuenta1 = new Cuenta("Pepe", 150M,2513,0,0);
+            cuenta1.RetirarDinero(100M);
+            Console.WriteLine(cuenta1.SaldoActual);
             Console.WriteLine(cuenta1.ToString());
             cuenta1.Deposito(2000M, Cuenta.Moneda.peso);
             //cuenta1.Titular = "Jose";
